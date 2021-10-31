@@ -1,25 +1,92 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext, createContext, useState, useMemo } from 'react'
+import { CookiesProvider, useCookies } from 'react-cookie'
 
-function App() {
+import {
+  AppBar,
+  Container,
+  createTheme,
+  CssBaseline,
+  Drawer,
+  IconButton,
+  ThemeProvider,
+  Toolbar,
+  Typography,
+  useTheme
+} from '@mui/material'
+import Brightness4Icon from '@mui/icons-material/Brightness4'
+import Brightness7Icon from '@mui/icons-material/Brightness7'
+
+import './app.css'
+
+const ColorModeContext = createContext({ toggleColorMode: () => {} })
+
+export default function App () {
+  const [cookies, setCookie] = useCookies(['theme-mode'])
+  const [mode, setMode] = useState(
+    cookies['theme-mode'] === 'dark' ? 'dark' : 'light'
+  )
+
+  const colorMode = useMemo(
+    () => ({
+      toggleColorMode: () => {
+        setMode(prevMode => {
+          const newMode = prevMode === 'light' ? 'dark' : 'light'
+          setCookie('theme-mode', newMode, { path: '/' })
+          return newMode
+        })
+      }
+    }),
+    [setCookie]
+  )
+
+  const theme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode
+        }
+      }),
+    [mode]
+  )
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ColorModeContext.Provider value={colorMode}>
+      <CookiesProvider>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <AppContainer />
+        </ThemeProvider>
+      </CookiesProvider>
+    </ColorModeContext.Provider>
+  )
 }
 
-export default App;
+function AppContainer () {
+  const theme = useTheme()
+  const colorMode = useContext(ColorModeContext)
+
+  return (
+    <Container maxWidth={false}>
+      <AppBar position='fixed'>
+        <Toolbar sx={{ justifyContent: 'space-between' }}>
+          <Typography variant='h4' noWrap>
+            User Manager
+          </Typography>
+          <IconButton
+            sx={{ ml: 1 }}
+            onClick={colorMode.toggleColorMode}
+            color='inherit'
+          >
+            {theme.palette.mode === 'dark' ? (
+              <Brightness4Icon />
+            ) : (
+              <Brightness7Icon />
+            )}
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      <Drawer variant='permanent'></Drawer>
+      {/* <UserManager /> */}
+    </Container>
+  )
+}

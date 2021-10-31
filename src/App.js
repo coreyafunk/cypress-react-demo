@@ -6,17 +6,19 @@ import {
   Container,
   createTheme,
   CssBaseline,
-  Drawer,
   IconButton,
   ThemeProvider,
   Toolbar,
   Typography,
+  Paper,
   useTheme
 } from '@mui/material'
 import Brightness4Icon from '@mui/icons-material/Brightness4'
 import Brightness7Icon from '@mui/icons-material/Brightness7'
 
 import './app.css'
+
+import UserManager from './components/UserManager'
 
 const ColorModeContext = createContext({ toggleColorMode: () => {} })
 
@@ -67,26 +69,27 @@ function AppContainer () {
 
   return (
     <Container maxWidth={false}>
-      <AppBar position='fixed'>
-        <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <Typography variant='h4' noWrap>
-            User Manager
-          </Typography>
-          <IconButton
-            sx={{ ml: 1 }}
-            onClick={colorMode.toggleColorMode}
-            color='inherit'
-          >
-            {theme.palette.mode === 'dark' ? (
-              <Brightness4Icon />
-            ) : (
-              <Brightness7Icon />
-            )}
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <Drawer variant='permanent'></Drawer>
-      {/* <UserManager /> */}
+      <Paper square>
+        <AppBar position='static'>
+          <Toolbar sx={{ justifyContent: 'space-between' }}>
+            <Typography variant='h4' noWrap>
+              User Manager
+            </Typography>
+            <IconButton
+              sx={{ ml: 1 }}
+              onClick={colorMode.toggleColorMode}
+              color='inherit'
+            >
+              {theme.palette.mode === 'dark' ? (
+                <Brightness4Icon />
+              ) : (
+                <Brightness7Icon />
+              )}
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+        <UserManager />
+      </Paper>
     </Container>
   )
 }

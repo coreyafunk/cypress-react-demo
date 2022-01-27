@@ -1,12 +1,13 @@
 import { createContext, useState, useMemo } from 'react'
 import { CookiesProvider, useCookies } from 'react-cookie'
-
+import { ApolloProvider } from '@apollo/client'
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material'
 
-import './app.css'
-
+import { apolloClient } from './services'
 import { Router } from './routing'
 import AppContainer from './components/appContainer/AppContainer'
+
+import './app.css'
 
 const ColorModeContext = createContext({ toggleColorMode: () => {} })
 
@@ -44,9 +45,11 @@ function App () {
       <CookiesProvider>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Router>
-            <AppContainer />
-          </Router>
+          <ApolloProvider client={apolloClient}>
+            <Router>
+              <AppContainer />
+            </Router>
+          </ApolloProvider>
         </ThemeProvider>
       </CookiesProvider>
     </ColorModeContext.Provider>

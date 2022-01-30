@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 
 import {
   AppBar,
@@ -14,24 +14,18 @@ import Brightness7Icon from '@mui/icons-material/Brightness7'
 
 import { ColorModeContext } from '../../App'
 import AppContent from '../../views/appContent/AppContent'
-import useViewState from '../../hooks/useViewState'
 
 function AppContainer () {
   const theme = useTheme()
   const colorMode = useContext(ColorModeContext)
-  const { title, headerTitle } = useViewState()
-
-  useEffect(() => {
-    document.title = title
-  }, [title])
 
   return (
-    <Container maxWidth={false}>
+    <Container maxWidth='lg'>
       <Paper square>
         <AppBar position='static'>
           <Toolbar sx={{ justifyContent: 'space-between' }}>
             <Typography variant='h4' noWrap>
-              {headerTitle}
+              {/* {headerTitle} */}
             </Typography>
             <IconButton
               sx={{ ml: 1 }}

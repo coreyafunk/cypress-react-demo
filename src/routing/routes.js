@@ -1,27 +1,38 @@
 const ROUTES = {
   HOME: {
     pathname: '/',
+    to: '/',
     title: 'Home',
     headerTitle: 'Home'
   },
-  SEARCH: {
-    pathname: '/search',
-    title: 'Search',
-    headerTitle: 'Search'
+
+  BROWSE: {
+    pathname: 'browse',
+    to: '/browse',
+    title: 'Browse',
+    headerTitle: 'Browse',
+
+    FILMS: {
+      pathname: 'films',
+      to: '/browse/films',
+      title: 'Browse Films',
+      headerTitle: 'Browse Films'
+    },
+
+    PEOPLE: {
+      pathname: 'people',
+      to: '/browse/people',
+      title: 'Browse People',
+      headerTitle: 'Browse People'
+    },
+
+    PLANETS: {
+      pathname: 'planets',
+      to: '/browse/planets',
+      title: 'Browse Planets',
+      headerTitle: 'Browse Planets'
+    }
   }
 }
 
-function getRouteByPathname (pathname) {
-  return Object.values(ROUTES).find(route => route.pathname === pathname)
-}
-
-function getTitleByPathname (pathname) {
-  return getRouteByPathname(pathname)?.title
-}
-
-function getHeaderTitleByPathname (pathname) {
-  return getRouteByPathname(pathname)?.headerTitle
-}
-
 export default ROUTES
-export { getTitleByPathname, getHeaderTitleByPathname }

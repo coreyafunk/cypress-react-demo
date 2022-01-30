@@ -1,4 +1,4 @@
 import Router from './Router'
-import routes, { getHeaderTitleByPathname, getTitleByPathname } from './routes'
+import routes from './routes'
 
-export { Router, routes, getHeaderTitleByPathname, getTitleByPathname }
+export { Router, routes }

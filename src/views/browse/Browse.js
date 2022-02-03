@@ -4,7 +4,9 @@ import { Outlet } from 'react-router-dom'
 function Browse () {
   return (
     <>
-      <Typography variant='h6'>Browse</Typography>
+      <Typography variant='h5' gutterBottom>
+        Browse
+      </Typography>
       <Outlet />
     </>
   )

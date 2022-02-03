@@ -6,7 +6,12 @@ import { Home, Browse, BrowseFilms, BrowsePeople } from '../'
 
 function AppContent () {
   return (
-    <Container maxWidth={false}>
+    <Container
+      maxWidth={false}
+      sx={{
+        py: 3
+      }}
+    >
       <Routes>
         <Route
           path={routes.HOME.pathname}

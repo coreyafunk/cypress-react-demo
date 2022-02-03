@@ -51,11 +51,6 @@ function ControlledAccordion ({
             key={accordion.key}
             TransitionProps={{ unmountOnExit }}
             onChange={(_, expanded) => {
-              console.log({
-                key: accordion.key,
-                expanded,
-                expandedAccordionKeys
-              })
               handleChange(accordion.key, expanded)
             }}
             expanded={expandedAccordionKeys.includes(accordion.key)}

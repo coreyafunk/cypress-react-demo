@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import {
   Accordion as MuiAccordion,
   AccordionDetails as MuiAccordionDetails,
-  AccordionSummary as MuiAccordionSummary,
-  Typography
+  AccordionSummary as MuiAccordionSummary
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp'
@@ -55,9 +54,7 @@ function ControlledAccordion ({
             }}
             expanded={expandedAccordionKeys.includes(accordion.key)}
           >
-            <AccordionSummary>
-              <Typography>{accordion.summary}</Typography>
-            </AccordionSummary>
+            <AccordionSummary>{accordion.summary}</AccordionSummary>
             <AccordionDetails>{accordion.details}</AccordionDetails>
           </Accordion>
         )

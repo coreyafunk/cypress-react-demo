@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import { Container } from '@mui/material'
 
 import { routes } from '../../routing'
-import { Home, Browse, BrowseFilms, BrowsePeople } from '../'
+import { Home, Browse, BrowseFilms } from '../'
 
 function AppContent () {
   return (
@@ -29,10 +29,10 @@ function AppContent () {
             path={routes.BROWSE.FILMS.pathname}
             element={<BrowseFilms route={routes.BROWSE.FILMS} />}
           />
-          <Route
+          {/* <Route
             path={routes.BROWSE.PEOPLE.pathname}
             element={<BrowsePeople route={routes.BROWSE.PEOPLE} />}
-          />
+          /> */}
         </Route>
       </Routes>
     </Container>

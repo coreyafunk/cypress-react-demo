@@ -2,7 +2,9 @@ import { Skeleton, Typography } from '@mui/material'
 import { gql, useQuery } from '@apollo/client'
 import { romanize } from 'romans'
 import { parseISO, format } from 'date-fns'
+
 import { ControlledAccordion } from '../../../components'
+import { stringArrayToListText } from '../../../utils'
 
 function BrowseFilms () {
   const { data, loading } = useQuery(GET_ALL_FILMS)
@@ -17,6 +19,7 @@ function BrowseFilms () {
       ) : (
         <ControlledAccordion
           collapseOthersOnExpand
+          unmountOnExit
           accordions={data?.allFilms?.films.map(film => ({
             key: film.episodeID,
             summary: (
@@ -35,6 +38,9 @@ function BrowseFilms () {
                 <Typography variant='body1' gutterBottom>
                   {`Directed by ${film.director}`}
                 </Typography>
+                <Typography variant='body1' gutterBottom>
+                  {`Produced by ${stringArrayToListText(film.producers)}`}
+                </Typography>
               </>
             )
           }))}
@@ -51,6 +57,7 @@ const GET_ALL_FILMS = gql`
         title
         releaseDate
         director
+        producers
         episodeID
         openingCrawl
       }

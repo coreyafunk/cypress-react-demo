@@ -8,9 +8,9 @@ import {
   Paper,
   useTheme
 } from '@mui/material'
-import Brightness4Icon from '@mui/icons-material/Brightness4'
-import Brightness7Icon from '@mui/icons-material/Brightness7'
 
+import { ReactComponent as LightIcon } from '../../resources/vectors/lightside.svg'
+import { ReactComponent as DarkIcon } from '../../resources/vectors/darkside.svg'
 import tieAdvancedFighter from '../../resources/images/tie_advanced_fighter.png'
 import { ColorModeContext } from '../../App'
 import AppContent from '../../views/appContent/AppContent'
@@ -20,6 +20,8 @@ import { routes } from '../../routing'
 function AppContainer () {
   const theme = useTheme()
   const colorMode = useContext(ColorModeContext)
+
+  const isDarkMode = theme.palette.mode === 'dark'
 
   return (
     <Container maxWidth='lg' sx={{ pt: 3 }}>
@@ -46,15 +48,17 @@ function AppContainer () {
             </div>
 
             <IconButton
-              sx={{ ml: 1 }}
+              sx={{
+                ml: 1,
+                width: '40px',
+                height: '40px',
+                fill: isDarkMode ? 'black' : 'white',
+                backgroundColor: 'rgba(255, 255, 255, 0.2)'
+              }}
               onClick={colorMode.toggleColorMode}
               color='inherit'
             >
-              {theme.palette.mode === 'dark' ? (
-                <Brightness4Icon />
-              ) : (
-                <Brightness7Icon />
-              )}
+              {isDarkMode ? <DarkIcon /> : <LightIcon />}
             </IconButton>
           </Toolbar>
         </AppBar>

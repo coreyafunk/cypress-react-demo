@@ -17,21 +17,21 @@ const ROUTES = {
       to: '/browse/films',
       title: 'Browse Films',
       headerTitle: 'Browse Films'
-    },
-
-    PEOPLE: {
-      pathname: 'people',
-      to: '/browse/people',
-      title: 'Browse People',
-      headerTitle: 'Browse People'
-    },
-
-    PLANETS: {
-      pathname: 'planets',
-      to: '/browse/planets',
-      title: 'Browse Planets',
-      headerTitle: 'Browse Planets'
     }
+
+    // PEOPLE: {
+    //   pathname: 'people',
+    //   to: '/browse/people',
+    //   title: 'Browse People',
+    //   headerTitle: 'Browse People'
+    // },
+
+    // PLANETS: {
+    //   pathname: 'planets',
+    //   to: '/browse/planets',
+    //   title: 'Browse Planets',
+    //   headerTitle: 'Browse Planets'
+    // }
   }
 }
 

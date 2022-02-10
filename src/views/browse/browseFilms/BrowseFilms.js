@@ -20,7 +20,7 @@ function BrowseFilms () {
         <ControlledAccordion
           collapseOthersOnExpand
           unmountOnExit
-          accordions={data?.allFilms?.films.map(film => ({
+          accordions={data?.allFilms?.films?.map(film => ({
             key: film.episodeID,
             summary: (
               <Typography variant='body1' sx={{ fontWeight: 'bold' }}>

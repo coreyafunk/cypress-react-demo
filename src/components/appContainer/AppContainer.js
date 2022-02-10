@@ -24,7 +24,11 @@ function AppContainer () {
   const isDarkMode = theme.palette.mode === 'dark'
 
   return (
-    <Container maxWidth='lg' sx={{ pt: 3 }}>
+    <Container
+      maxWidth='lg'
+      sx={{ pt: 3 }}
+      data-cy={`app-theme-container_${theme.palette.mode}`}
+    >
       <Paper square>
         <AppBar position='static'>
           <Toolbar sx={{ justifyContent: 'space-between' }}>
@@ -57,6 +61,7 @@ function AppContainer () {
               }}
               onClick={colorMode.toggleColorMode}
               color='inherit'
+              data-cy='theme-toggle-icon-button'
             >
               {isDarkMode ? <DarkIcon /> : <LightIcon />}
             </IconButton>

@@ -9,7 +9,7 @@ import { styled } from '@mui/material/styles'
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp'
 
 function ControlledAccordion ({
-  accordions,
+  accordions = [],
   unmountOnExit = false,
   collapseOthersOnExpand = false
 }) {

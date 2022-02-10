@@ -6,7 +6,7 @@ import { ControlledAccordion } from '../../components'
 function Home () {
   return (
     <>
-      <Typography gutterBottom variant='h5'>
+      <Typography gutterBottom variant='h5' data-cy='home-header'>
         Welcome to the StarDex
       </Typography>
       <Typography gutterBottom variant='body1'>

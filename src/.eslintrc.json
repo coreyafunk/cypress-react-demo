@@ -1,0 +1,8 @@
+{
+  "root": true,
+  "extends": ["plugin:react/recommended", "standard"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "multiline-ternary": "off"
+  }
+}

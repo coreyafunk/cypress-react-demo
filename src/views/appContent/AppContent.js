@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import { Container } from '@mui/material'
 
 import { routes } from '../../routing'
-import { Home, Browse, BrowseFilms } from '../'
+import { Login, Authenticated, Home, Browse, BrowseFilms } from '../'
 
 function AppContent () {
   return (
@@ -14,25 +14,38 @@ function AppContent () {
     >
       <Routes>
         <Route
-          path={routes.HOME.pathname}
-          element={<Home route={routes.HOME} />}
+          path={routes.LOGIN.pathname}
+          element={<Login route={routes.LOGIN} />}
         />
         <Route
-          path={routes.BROWSE.pathname}
-          element={<Navigate replace to={routes.BROWSE.FILMS.to} />}
+          path={routes.AUTHENTICATED.pathname}
+          element={<Navigate replace to={routes.AUTHENTICATED.HOME.to} />}
         />
         <Route
-          path={routes.BROWSE.pathname}
-          element={<Browse route={routes.BROWSE} />}
+          path={routes.AUTHENTICATED.pathname}
+          element={<Authenticated route={routes.AUTHENTICATED} />}
         >
           <Route
-            path={routes.BROWSE.FILMS.pathname}
-            element={<BrowseFilms route={routes.BROWSE.FILMS} />}
+            path={routes.AUTHENTICATED.HOME.pathname}
+            element={<Home route={routes.AUTHENTICATED.HOME} />}
           />
-          {/* <Route
-            path={routes.BROWSE.PEOPLE.pathname}
-            element={<BrowsePeople route={routes.BROWSE.PEOPLE} />}
-          /> */}
+          <Route
+            path={routes.AUTHENTICATED.BROWSE.pathname}
+            element={
+              <Navigate replace to={routes.AUTHENTICATED.BROWSE.FILMS.to} />
+            }
+          />
+          <Route
+            path={routes.AUTHENTICATED.BROWSE.pathname}
+            element={<Browse route={routes.AUTHENTICATED.BROWSE} />}
+          >
+            <Route
+              path={routes.AUTHENTICATED.BROWSE.FILMS.pathname}
+              element={
+                <BrowseFilms route={routes.AUTHENTICATED.BROWSE.FILMS} />
+              }
+            />
+          </Route>
         </Route>
       </Routes>
     </Container>

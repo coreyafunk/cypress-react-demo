@@ -1,37 +1,37 @@
 const ROUTES = {
-  HOME: {
+  LOGIN: {
+    pathname: '/login',
+    to: '/login',
+    title: 'Login',
+    headerTitle: 'Login'
+  },
+
+  AUTHENTICATED: {
     pathname: '/',
     to: '/',
     title: 'Home',
-    headerTitle: 'Home'
-  },
+    headerTitle: 'Home',
 
-  BROWSE: {
-    pathname: 'browse',
-    to: '/browse',
-    title: 'Browse',
-    headerTitle: 'Browse',
+    HOME: {
+      pathname: '/home',
+      to: '/home',
+      title: 'Home',
+      headerTitle: 'Home'
+    },
 
-    FILMS: {
-      pathname: 'films',
-      to: '/browse/films',
-      title: 'Browse Films',
-      headerTitle: 'Browse Films'
+    BROWSE: {
+      pathname: 'browse',
+      to: '/browse',
+      title: 'Browse',
+      headerTitle: 'Browse',
+
+      FILMS: {
+        pathname: 'films',
+        to: '/browse/films',
+        title: 'Browse Films',
+        headerTitle: 'Browse Films'
+      }
     }
-
-    // PEOPLE: {
-    //   pathname: 'people',
-    //   to: '/browse/people',
-    //   title: 'Browse People',
-    //   headerTitle: 'Browse People'
-    // },
-
-    // PLANETS: {
-    //   pathname: 'planets',
-    //   to: '/browse/planets',
-    //   title: 'Browse Planets',
-    //   headerTitle: 'Browse Planets'
-    // }
   }
 }
 

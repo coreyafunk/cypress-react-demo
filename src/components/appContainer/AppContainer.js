@@ -39,7 +39,7 @@ function AppContainer () {
                 columnGap: '12px'
               }}
             >
-              <Link to={routes.HOME.to}>
+              <Link to={routes.AUTHENTICATED.to}>
                 <img
                   style={{ maxWidth: '50px' }}
                   src={tieAdvancedFighter}

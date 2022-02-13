@@ -24,34 +24,11 @@ const ACCORDIONS = [
     details: (
       <List>
         <ListItem>
-          <Link to={routes.BROWSE.FILMS.to}>Films</Link>
+          <Link to={routes.AUTHENTICATED.BROWSE.FILMS.to}>Films</Link>
         </ListItem>
-        {/* <ListItem>
-          <Link to={routes.BROWSE.PEOPLE.to}>People</Link>
-        </ListItem>
-        <ListItem>
-          <Link to={routes.BROWSE.PLANETS.to}>Planets</Link>
-        </ListItem> */}
       </List>
     )
   }
-  // {
-  //   key: 'search',
-  //   summary: 'Search',
-  //   details: (
-  //     <List>
-  //       <ListItem>
-  //         <Link to={routes.BROWSE.FILMS.to}>Films</Link>
-  //       </ListItem>
-  //       <ListItem>
-  //         <Link to={routes.BROWSE.PEOPLE.to}>People</Link>
-  //       </ListItem>
-  //       <ListItem>
-  //         <Link to={routes.BROWSE.PLANETS.to}>Planets</Link>
-  //       </ListItem>
-  //     </List>
-  //   )
-  // }
 ]
 
 export default Home

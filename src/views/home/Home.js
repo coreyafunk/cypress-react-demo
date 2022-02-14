@@ -21,10 +21,18 @@ const ACCORDIONS = [
   {
     key: 'browse',
     summary: 'Browse',
+    summaryProps: {
+      'data-cy': 'browse-accordion'
+    },
     details: (
       <List>
         <ListItem>
-          <Link to={routes.AUTHENTICATED.BROWSE.FILMS.to}>Films</Link>
+          <Link
+            to={routes.AUTHENTICATED.BROWSE.FILMS.to}
+            data-cy='browse-films-link'
+          >
+            Films
+          </Link>
         </ListItem>
       </List>
     )

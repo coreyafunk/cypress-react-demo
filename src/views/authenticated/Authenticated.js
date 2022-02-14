@@ -25,7 +25,12 @@ function Authenticated () {
       {!isLoggedIn && <Navigate replace to={routes.LOGIN.to} />}
       <Outlet />
 
-      <Button sx={{ mt: 5 }} onClick={handleLogout} disabled={loading}>
+      <Button
+        sx={{ mt: 5 }}
+        onClick={handleLogout}
+        disabled={loading}
+        data-cy='logout-button'
+      >
         {loading ? <CircularProgress size={25} /> : 'Log Out'}
       </Button>
     </>

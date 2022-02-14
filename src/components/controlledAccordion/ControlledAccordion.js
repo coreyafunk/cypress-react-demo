@@ -45,17 +45,27 @@ function ControlledAccordion ({
   return (
     <>
       {Object.values(accordions).map(accordion => {
+        const {
+          key,
+          summary,
+          details,
+          summaryProps,
+          detailsProps,
+          ...accordionRestProps
+        } = accordion
+
         return (
           <Accordion
-            key={accordion.key}
+            key={key}
             TransitionProps={{ unmountOnExit }}
             onChange={(_, expanded) => {
-              handleChange(accordion.key, expanded)
+              handleChange(key, expanded)
             }}
-            expanded={expandedAccordionKeys.includes(accordion.key)}
+            expanded={expandedAccordionKeys.includes(key)}
+            {...accordionRestProps}
           >
-            <AccordionSummary>{accordion.summary}</AccordionSummary>
-            <AccordionDetails>{accordion.details}</AccordionDetails>
+            <AccordionSummary {...summaryProps}>{summary}</AccordionSummary>
+            <AccordionDetails {...detailsProps}>{details}</AccordionDetails>
           </Accordion>
         )
       })}

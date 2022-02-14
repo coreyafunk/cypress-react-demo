@@ -24,22 +24,22 @@ function BrowseFilms () {
             key: film.episodeID,
             summary: (
               <Typography variant='body1' sx={{ fontWeight: 'bold' }}>
-                {`Episode ${romanize(film.episodeID)}: ${film.title}`}
+                {formatTitle(film)}
               </Typography>
             ),
+            summaryProps: {
+              'data-cy': 'film-accordion'
+            },
             details: (
               <>
                 <Typography variant='body1' gutterBottom>
-                  {`Released on ${format(
-                    parseISO(film.releaseDate),
-                    'EEEE LLL Mo, yyyy'
-                  )}`}
+                  {formatReleaseDate(film)}
                 </Typography>
                 <Typography variant='body1' gutterBottom>
-                  {`Directed by ${film.director}`}
+                  {formatDirectedBy(film)}
                 </Typography>
                 <Typography variant='body1' gutterBottom>
-                  {`Produced by ${stringArrayToListText(film.producers)}`}
+                  {formatProducedBy(film)}
                 </Typography>
               </>
             )
@@ -48,6 +48,25 @@ function BrowseFilms () {
       )}
     </>
   )
+}
+
+function formatTitle (film) {
+  return `Episode ${romanize(film.episodeID)}: ${film.title}`
+}
+
+function formatReleaseDate (film) {
+  return `Released on ${format(
+    parseISO(film.releaseDate),
+    'EEEE LLL Mo, yyyy'
+  )}`
+}
+
+function formatDirectedBy (film) {
+  return `Directed by ${film.director}`
+}
+
+function formatProducedBy (film) {
+  return `Produced by ${stringArrayToListText(film.producers)}`
 }
 
 const GET_ALL_FILMS = gql`

@@ -18,3 +18,14 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+/**
+ * Behaviour that should be executed before all tests are executed
+ */
+before(() => {
+  cy.log('Visiting App')
+  cy.visit('/')
+
+  cy.log('Clearing dangling state')
+  cy.resetApp()
+})

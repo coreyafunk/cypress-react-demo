@@ -1,12 +1,4 @@
 describe('Can change and persist the theme mode', () => {
-  beforeEach(() => {
-    cy.visit('/')
-  })
-
-  it('Should load the app with the light theme mode', () => {
-    cy.get('[data-cy="app-theme-container_light"]').should('exist')
-  })
-
   it('Should change the theme mode and persist it between sessions', () => {
     // The app's theme should be 'light' to begin with
     cy.get('[data-cy="app-theme-container_light"]').should('exist')
@@ -28,6 +20,6 @@ describe('Can change and persist the theme mode', () => {
     cy.reload(true)
 
     // The app's theme should be 'light'
-    cy.get('[data-cy="app-theme-container_light"]').should('not.exist')
+    cy.get('[data-cy="app-theme-container_light"]').should('exist')
   })
 })

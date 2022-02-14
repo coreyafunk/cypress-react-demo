@@ -52,7 +52,14 @@ function Login () {
               <InputLabel htmlFor='username'>
                 Username or Email Address
               </InputLabel>
-              <Input id='username' name='username' autoComplete='username' />
+              <Input
+                id='username'
+                name='username'
+                autoComplete='username'
+                inputProps={{
+                  'data-cy': 'username-input'
+                }}
+              />
             </FormControl>
             <FormControl>
               <InputLabel htmlFor='password'>Password</InputLabel>
@@ -61,9 +68,17 @@ function Login () {
                 name='password'
                 type='password'
                 autoComplete='current-password'
+                inputProps={{
+                  'data-cy': 'password-input'
+                }}
               />
             </FormControl>
-            <Button variant='contained' type='submit' disabled={loading}>
+            <Button
+              variant='contained'
+              type='submit'
+              disabled={loading}
+              data-cy='login-button'
+            >
               {loading ? <CircularProgress size={25} /> : 'Log In'}
             </Button>
           </Stack>
@@ -75,6 +90,7 @@ function Login () {
               setShowLoginError(false)
             }}
             sx={{ mt: 2 }}
+            data-cy='login-error-alert'
           >
             Please enter a valid username and password
           </Alert>

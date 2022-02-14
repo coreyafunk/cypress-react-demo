@@ -1,6 +1,6 @@
 const ROUTES = {
   LOGIN: {
-    pathname: '/login',
+    pathname: 'login',
     to: '/login',
     title: 'Login',
     headerTitle: 'Login'
@@ -13,7 +13,7 @@ const ROUTES = {
     headerTitle: 'Home',
 
     HOME: {
-      pathname: '/home',
+      pathname: 'home',
       to: '/home',
       title: 'Home',
       headerTitle: 'Home'
